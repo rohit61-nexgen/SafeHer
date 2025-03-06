@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeHer - Women Safety Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #8B008B;
+            --secondary: #FF69B4;
+            --danger: #dc3545;
+            --success: #28a745;
+        }
+
+        body {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        /* Container Styles */
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 95%;
+            max-width: 600px;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        /* Form Styles */
+        .form-section {
+            margin: 1.5rem 0;
+            transform: translateX(-50px);
+            opacity: 0;
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Emergency Contacts */
+        .emergency-contact-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .emergency-contact-container.active {
+            max-height: 1000px;
+        }
+
+        .contact-input-group {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .remove-contact {
+            background: var(--danger);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+        }
+
+        /* Social Login */
+        .social-login {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .social-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* Location Section */
+        .location-section {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin: 1rem 0;
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes slideIn {
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+
+            .contact-input-group {
+                flex-direction: column;
+            }
+
+            .social-login {
+                flex-direction: column;
+            }
+
+            .social-btn {
+                justify-content: center;
+            }
+
+            .location-section {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <h1>SafeHer Registration</h1>
+            <p>Your safety is our priority</p>
+        </div>
+
+        <form id="safetyForm">
+            <!-- Social Login -->
+            <div class="social-login">
+                <button type="button" class="social-btn" style="background: #DB4437">
+                    <i class="fab fa-google"></i> Google
+                </button>
+                <button type="button" class="social-btn" style="background: #3B5998">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </button>
+                <button type="button" class="social-btn" style="background: #E1306C">
+                    <i class="fab fa-instagram"></i> Instagram
+                </button>
+            </div>
+
+            <!-- Personal Details -->
+            <div class="form-section">
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                </div>
+            </div>
+
+            <!-- Emergency Contacts -->
+            <div class="form-section">
+                <h3>Emergency Contacts (Max 5)</h3>
+                <div class="emergency-contact-container" id="emergencyContacts">
+                    <div class="contact-input-group">
+                        <input type="tel" placeholder="Emergency Contact 1" required>
+                        <button type="button" class="remove-contact" disabled>
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="button" class="btn-secondary" onclick="addEmergencyContact()">
+                    <i class="fas fa-plus"></i> Add Contact
+                </button>
+            </div>
+
+            <!-- Location -->
+            <div class="form-section">
+                <div class="location-section">
+                    <input type="text" id="location" placeholder="Your location" readonly>
+                    <button type="button" class="btn-primary" onclick="getLocation()">
+                        <i class="fas fa-map-marker-alt"></i> Detect Location
+                    </button>
+                </div>
+            </div>
+
+            <!-- Medical Info -->
+            <div class="form-section optional-field">
+                <div class="form-group">
+                    <select id="bloodType">
+                        <option value="">Select Blood Type</option>
+                        <!-- Options here -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-section">
+                <button type="submit" class="btn-primary">Register</button>
+                <button type="button" class="btn-secondary" onclick="skipOptionalFields()">
+                    Skip Optional Fields
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Emergency Contacts
+        let emergencyContactCount = 1;
+        const maxContacts = 5;
+
+        function addEmergencyContact() {
+            if(emergencyContactCount >= maxContacts) return;
+            
+            const container = document.getElementById('emergencyContacts');
+            const newContact = document.createElement('div');
+            newContact.className = 'contact-input-group';
+            newContact.innerHTML = `
+                <input type="tel" placeholder="Emergency Contact ${emergencyContactCount + 1}" required>
+                <button type="button" class="remove-contact" onclick="this.parentElement.remove(); updateContactCount(-1)">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            container.appendChild(newContact);
+            emergencyContactCount++;
+            container.classList.add('active');
+        }
+
+        // Geolocation
+        function getLocation() {
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    document.getElementById('location').value = 
+                        `${position.coords.latitude}, ${position.coords.longitude}`;
+                }, error => {
+                    alert('Error getting location: ' + error.message);
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // Skip Optional Fields
+        function skipOptionalFields() {
+            document.querySelectorAll('.optional-field').forEach(field => {
+                field.style.display = 'none';
+            });
+        }
+
+        // Form Validation
+        document.getElementById('safetyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if(validateForm()) {
+                window.location.href = 'safety.html';
+            }
+        });
+
+        function validateForm() {
+            let isValid = true;
+            const requiredFields = document.querySelectorAll('[required]');
+            
+            requiredFields.forEach(field => {
+                if(!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = 'var(--danger)';
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
+            });
+
+            return isValid;
+        }
+
+        // Initialize Blood Type Options
+        const bloodTypes = ['A+', 'A-', 'B+', 'B-', 'O+', 'O-', 'AB+', 'AB-'];
+        const bloodTypeSelect = document.getElementById('bloodType');
+        bloodTypes.forEach(type => {
+            const option = document.createElement('option');
+            option.value = type;
+            option.textContent = type;
+            bloodTypeSelect.appendChild(option);
+        });
+    </script>
+</body>
+</html>

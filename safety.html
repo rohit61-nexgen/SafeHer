@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeHer - Women Safety Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">SafeHer</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#legal">Legal Asist</a>
+                <a href="#emergency">Emergency</a>
+                <a href="#tips">Safety Tips</a>
+                <a href="#resources">Resources</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+   
+   <!-- HTML: Hero Section (Emergency Button) -->
+<section class="hero" id="home">
+    <h1>Your Safety is Our Priority</h1>
+    <p>24/7 Emergency Support for Women Worldwide</p>
+    <div class="emergency-btn-container">
+        <button class="emergency-btn" onclick="triggerEmergency()">
+            <i class="fas fa-bell"></i> EMERGENCY ALERT
+        </button>
+    </div>
+</section>
+
+
+
+    
+    <section class="features" id="features">
+        <h2>Our Features</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Instant Alert</h3>
+                <p>Send emergency alerts to authorities and trusted contacts with your location</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Live Tracking</h3>
+                <p>Share your real-time location with trusted contacts</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-phone-volume"></i>
+                <h3>24/7 Support</h3>
+                <p>Immediate connection to emergency services</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="emergency-section" id="emergency">
+        <h2>Quick Emergency Access</h2>
+        <div class="quick-access">
+            <button class="quick-btn" onclick="shareLocation()">
+                <i class="fas fa-location-arrow"></i> Share Location
+            </button>
+            <button class="quick-btn" onclick="callEmergency()">
+                <i class="fas fa-phone"></i> Call Emergency
+            </button>
+            <button class="quick-btn" onclick="triggerSOS()">
+                <i class="fas fa-bell"></i> SOS Alert
+            </button>
+        </div>
+    </section>
+
+    <section class="safety-tips" id="tips">
+        <h2>Essential Safety Tips</h2>
+        <div class="grid">
+            <!-- Public Transport Safety -->
+            <div class="card">
+                <i class="fas fa-bus"></i>
+                <h3>Public Transport</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <h4>Key Precautions</h4>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Always share ride details with trusted contacts</li>
+                                <li>Pre-book verified cabs at night</li>
+                                <li>Avoid empty compartments in trains/buses</li>
+                                <li>Use women-only coaches when available</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Night Safety -->
+            <div class="card">
+                <i class="fas fa-moon"></i>
+                <h3>Night Safety</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <h4>Important Measures</h4>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Carry pepper spray/personal alarm</li>
+                                <li>Walk in well-lit areas facing traffic</li>
+                                <li>Avoid phone distraction while walking</li>
+                                <li>Trust your instincts - if unsafe, enter nearest public place</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Online Safety -->
+            <div class="card">
+                <i class="fas fa-laptop"></i>
+                <h3>Digital Safety</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <h4>Cyber Security</h4>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Never share personal details online</li>
+                                <li>Use strong unique passwords</li>
+                                <li>Enable two-factor authentication</li>
+                                <li>Report cyber crimes immediately</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Domestic Safety -->
+            <div class="card">
+                <i class="fas fa-home"></i>
+                <h3>Home Safety</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <h4>Domestic Precautions</h4>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Install peepholes in doors</li>
+                                <li>Keep emergency numbers on speed dial</li>
+                                <li>Use door chains for unknown visitors</li>
+                                <li>Maintain digital records of domestic helps</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Workplace Safety -->
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <h3>Workplace Safety</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <h4>Office Guidelines</h4>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Report harassment immediately to ICC</li>
+                                <li>Avoid isolated meetings after hours</li>
+                                <li>Use company transport for late shifts</li>
+                                <li>Know your POSH Committee members</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- General Safety -->
+            <div class="card">
+                <i class="fas fa-universal-access"></i>
+                <h3>General Precautions</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <h4>Always Remember</h4>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Trust your instincts</li>
+                                <li>Learn basic self-defense</li>
+                                <li>Share live location with trusted contacts</li>
+                                <li>Memorize emergency numbers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="legal-assistance" id="legal">
+        <h2>Legal Assistance & Support</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Indian Legal Resources</h3>
+                <div class="legal-links">
+                    <a href="https://doj.gov.in/access-to-justice-for-the-marginalized/" target="_blank" class="quick-btn">
+                        NALSA (National Legal Services)
+                    </a>
+                    <a href="https://nyaaya.org" target="_blank" class="quick-btn">
+                        Nyaaya Legal Resources
+                    </a>
+                    <a href="https://legalservicesindia.com" target="_blank" class="quick-btn">
+                        Legal Services India
+                    </a>
+                    <button class="quick-btn" onclick="showStateLegal()">
+                        State Legal Authorities
+                    </button>
+                </div>
+            </div>
+    
+            <div class="card">
+                <h3>International Organizations</h3>
+                <div class="legal-links">
+                    <a href="https://www.unwomen.org" target="_blank" class="quick-btn">
+                        UN Women
+                    </a>
+                    <a href="https://www.womensaid.org.uk" target="_blank" class="quick-btn">
+                        Women's Aid International
+                    </a>
+                    <a href="https://www.icrw.org" target="_blank" class="quick-btn">
+                        Intl Center for Research on Women
+                    </a>
+                </div>
+            </div>
+    
+            <div class="card">
+                <h3>NGO Partners</h3>
+                <div class="ngo-grid">
+                    <a href="https://shaktivahini.org" target="_blank" class="ngo-card">
+                        <i class="fas fa-hands-helping"></i>
+                        Shakti Vahini
+                    </a>
+                    <a href="https://ich.unesco.org/en/RL/majlis-a-cultural-and-social-space-01076" target="_blank" class="ngo-card">
+                        <i class="fas fa-balance-scale"></i>
+                        Majlis Legal Center
+                    </a>
+                    <a href="https://www.snehalaya.org" target="_blank" class="ngo-card">
+                        <i class="fas fa-home"></i>
+                        Snehalaya NGO
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="safety-resources" id="resources">
+        <h2>Safety Resources</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Self-Defense Videos</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/T7aNSRoDCmg" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen></iframe>
+                </div>
+                <p>Basic self-defense techniques tutorial</p>
+            </div>
+            
+            <div class="card">
+                <h3>Indian Women Laws</h3>
+                <ul class="law-list">
+                    <li>Protection of Women from Domestic Violence Act (2005)</li>
+                    <li>Sexual Harassment at Workplace Act (2013)</li>
+                    <li>Dowry Prohibition Act (1961)</li>
+                    <li>Indian Penal Code Section 354 (Assault on Women)</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3>Emergency Portals</h3>
+                <div class="helpline-list">
+                    <a href="https://cybercrime.gov.in" target="_blank" class="quick-btn">
+                        Cyber Crime Portal
+                    </a>
+                    <a href="http://ncw.nic.in/" target="_blank" class="quick-btn">
+                        National Commission for Women
+                    </a>
+                    <button class="quick-btn" onclick="showNationalHelplines()">
+                        National Helplines
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+ <!-- Training & Sensitization -->
+ <div class="training-section">
+    <h2>Training & Sensitization Programs</h2>
+    <div class="program-grid">
+        <div class="program-card">
+            <h3><i class="fas fa-shield-alt"></i> Self-Defense Workshops</h3>
+            
+            <p>Free martial arts training for girls aged 12-25</p>
+            <button class="quick-btn" onclick="showWorkshops()">
+                Find Nearby Centers
+            </button>
+        </div>
+        
+        <div class="program-card">
+            <h3><i class="fas fa-chalkboard-teacher"></i> School Programs</h3>
+            <p>Good Touch-Bad Touch awareness sessions</p>
+            <a href="https://ncpcr.gov.in" target="_blank" class="quick-btn">
+                Request Session
+            </a>
+        </div>
+        
+        <div class="program-card">
+            <h3><i class="fas fa-users"></i> Community Training</h3>
+            <p>Gender sensitization for police/teachers</p>
+            <button class="quick-btn" onclick="showTrainingModules()">
+                Access Material
+            </button>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+    <section class="critical-issues" id="issues">
+        <!-- Human Trafficking -->
+        <div class="issue-card">
+            <div class="issue-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h2>Human Trafficking</h2>
+            <div class="issue-content">
+                <h3>Indicators of Trafficking:</h3>
+                <ul>
+                    <li>Sudden disappearance from school/work</li>
+                    <li>Restricted communication</li>
+                    <li>Signs of physical abuse</li>
+                </ul>
+                
+                <div class="emergency-action">
+                    <button class="quick-btn" onclick="callHelpline('1098')">
+                        <i class="fas fa-phone"></i> Childline (1098)
+                    </button>
+                    <a href="https://nhrc.nic.in" target="_blank" class="quick-btn">
+                        Report to NHRC
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Child Sexual Abuse -->
+        <div class="issue-card">
+            <div class="issue-icon">
+                <i class="fas fa-child"></i>
+            </div>
+            <h2>Child Sexual Abuse</h2>
+            <div class="issue-content">
+                <h3>Immediate Actions:</h3>
+                <ol>
+                    <li>Preserve evidence</li>
+                    <li>Contact Child Welfare Committee</li>
+                    <li>File FIR under POCSO Act</li>
+                </ol>
+                
+                <div class="resource-links">
+                    <a href="https://childsafetyatwork.org/" target="_blank" class="quick-btn">
+                        POCSO Training
+                    </a>
+                    <button class="quick-btn" onclick="showCSAHelplines()">
+                        State Helplines
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Child Marriages -->
+        <div class="issue-card">
+            <div class="issue-icon">
+                <i class="fas fa-ring"></i>
+            </div>
+            <h2>Child Marriages</h2>
+            <div class="issue-content">
+                <h3>Prevention Measures:</h3>
+                <ul>
+                    <li>Report to District Magistrate</li>
+                    <li>Contact Women Police Station</li>
+                    <li>Prohibition of Child Marriage Act (2006)</li>
+                </ul>
+                
+                <div class="emergency-action">
+                    <button class="quick-btn" onclick="showCMStats()">
+                        <i class="fas fa-chart-bar"></i> Statistics
+                    </button>
+                    <a href="https://wcd.gov.in/" target="_blank" class="quick-btn">
+                        Ministry Portal
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+       
+
+
+        <!-- Emergency Card -->
+        
+
+        <footer class="site-footer">
+            <div class="footer-container">
+                <!-- About Section -->
+                <div class="footer-section">
+                    <h4>About SafeHer</h4>
+                    <p>Empowering women through safety solutions and emergency support. 24/7 helpline and instant protection services.</p>
+                    <div class="developer-info">
+                        <h5>Developer Details</h5>
+                        <p>Created by Rohit Yadav</p>
+                        <a href="https://nexgenlab.netlify.app/" target="_blank">View Portfolio</a><br>
+                        <a href="mailto:[nexgenlab61@gmail.com]">Contact Developer</a>
+                    </div>
+                </div>
+        
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#emergency">Emergency Contacts</a></li>
+                        <li><a href="#tips">Safety Guidelines</a></li>
+                        <li><a href="#legal">Legal Assistance</a></li>
+                        <li><a href="#blog">Safety Blog</a></li>
+                        <li><a href="#volunteer">Join as Volunteer</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Social Media -->
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://x.com/NexGenLabs1" target="_blank"><i class="fab fa-twitter"></i></a>
+                        
+                        <a href="https://www.linkedin.com/in/rohit-yadav61?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/rohit61-nexgen" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+        
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i>+91 81123-57136</li>
+                        <li><i class="fas fa-envelope"></i> nexgenlab61@gmail.com</li>
+                        <li><i class="fas fa-map-marker"></i>TERI PGC Ghazipur, India</li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="footer-bottom">
+                <p>&copy; 2023 SafeHer. All rights reserved. | Developed with <i class="fas fa-heart"></i> for Women Safety</p>
+            </div>
+        </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
